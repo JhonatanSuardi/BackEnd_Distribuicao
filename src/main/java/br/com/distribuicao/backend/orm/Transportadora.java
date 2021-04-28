@@ -5,7 +5,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "transportadora")
-
 public class Transportadora {
 
     @Id
