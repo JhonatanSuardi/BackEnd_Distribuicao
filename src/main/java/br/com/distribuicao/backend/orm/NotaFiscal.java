@@ -12,7 +12,9 @@ public class NotaFiscal {
     @OneToOne
     @JoinColumn(name = "planta_id")
     private Destino codPlanta;
-//    private Slip codSlip;
+    @OneToOne
+    @JoinColumn(name = "slip_id")
+    private Slip codSlip;
     @ManyToOne
     @JoinColumn(name = "registro_id")
     private RegistroEntrada codRegistro;
