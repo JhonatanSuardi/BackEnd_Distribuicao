@@ -3,6 +3,7 @@ package br.com.distribuicao.backend.orm;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "destino")

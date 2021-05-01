@@ -1,6 +1,7 @@
 package br.com.distribuicao.backend.orm;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "motorista")
@@ -11,6 +12,8 @@ public class Motorista {
     private Integer codMotorista;
     private String cpf;
     private String nome;
+    @OneToMany(mappedBy = "motorista")
+    private List<NotaFiscal> notaFiscais;
 
     public Integer getCodMotorista() {
         return codMotorista;

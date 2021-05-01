@@ -2,6 +2,7 @@ package br.com.distribuicao.backend.orm;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "transportadora")
@@ -11,6 +12,8 @@ public class Transportadora {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codTransportadora;
     private String nome;
+    @OneToMany(mappedBy = "transportadora")
+    private List<NotaFiscal> notaFiscalList;
 
     public Integer getCodTransportadora() {
         return codTransportadora;
