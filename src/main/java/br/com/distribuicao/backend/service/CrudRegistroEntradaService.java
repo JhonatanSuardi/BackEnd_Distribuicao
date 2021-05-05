@@ -4,10 +4,10 @@ import br.com.distribuicao.backend.repository.RegistroEntradaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CrudRegistroEntradaRepository {
+public class CrudRegistroEntradaService {
     private final RegistroEntradaRepository registroEntradaRepository;
 
-    public CrudRegistroEntradaRepository(RegistroEntradaRepository registroEntradaRepository) {
+    public CrudRegistroEntradaService(RegistroEntradaRepository registroEntradaRepository) {
         this.registroEntradaRepository = registroEntradaRepository;
     }
 }
