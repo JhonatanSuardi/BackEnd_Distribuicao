@@ -1,5 +1,10 @@
 package br.com.distribuicao.backend.orm;
 
+import br.com.distribuicao.backend.dto.DestinoDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
@@ -7,7 +12,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "destino")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Destino {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codPlanta;
@@ -15,35 +25,11 @@ public class Destino {
     private String cidade;
     private String estado;
 
-    public Integer getCodPlanta() {
-        return codPlanta;
-    }
-
-    public void setCodPlanta(Integer codPlanta) {
-        this.codPlanta = codPlanta;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public static Destino valueOf(DestinoDTO destinoDTO) {
+        return Destino.builder()
+                .descricao(destinoDTO.getDescricao())
+                .cidade(destinoDTO.getCidade())
+                .estado(destinoDTO.getEstado())
+                .build();
     }
 }

@@ -11,6 +11,7 @@ public class DistribuicaoApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(DistribuicaoApplication.class, args);
+
     }
 
     public DistribuicaoApplication(CrudTransportadoraService crudTransportadoraService) {

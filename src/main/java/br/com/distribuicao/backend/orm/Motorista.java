@@ -1,10 +1,20 @@
 package br.com.distribuicao.backend.orm;
 
+import br.com.distribuicao.backend.dto.MotoristaDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "motorista")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Motorista {
 
     @Id
@@ -12,30 +22,18 @@ public class Motorista {
     private Integer codMotorista;
     private String cpf;
     private String nome;
+
     @OneToMany(mappedBy = "motorista")
     private List<NotaFiscal> notaFiscais;
 
-    public Integer getCodMotorista() {
-        return codMotorista;
-    }
-
-    public void setCodMotorista(Integer codMotorista) {
-        this.codMotorista = codMotorista;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
+    public Motorista(String cpf, String nome) {
         this.cpf = cpf;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
         this.nome = nome;
+    }
+    public static Motorista valueOf(MotoristaDTO motoristaDTO) {
+        return Motorista.builder()
+                .cpf(motoristaDTO.getCpf())
+                .nome(motoristaDTO.getNome())
+                .build();
     }
 }
