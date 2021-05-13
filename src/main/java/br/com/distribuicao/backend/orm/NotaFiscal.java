@@ -28,23 +28,23 @@ public class NotaFiscal {
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "motorista_id")
     private Motorista motorista;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "planta_id")
     private Destino codPlanta;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "slip_id")
     private Slip codSlip;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "registro_id")
     private RegistroEntrada codRegistro;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "transportadora_id")
     private Transportadora transportadora;
 

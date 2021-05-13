@@ -23,8 +23,6 @@ public class RegistroEntrada {
     private Integer codRegistroEntrada;
     private String data;
 
-    @OneToMany(mappedBy = "codRegistro")
-    private List<NotaFiscal> notaFiscais;
 
     public static RegistroEntrada valueOf(RegistroEntradaDTO registroEntradaDTO) {
         return RegistroEntrada.builder()

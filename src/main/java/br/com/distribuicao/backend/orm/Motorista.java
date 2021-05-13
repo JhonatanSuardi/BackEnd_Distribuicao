@@ -23,9 +23,6 @@ public class Motorista {
     private String cpf;
     private String nome;
 
-    @OneToMany(mappedBy = "motorista")
-    private List<NotaFiscal> notaFiscais;
-
     public Motorista(String cpf, String nome) {
         this.cpf = cpf;
         this.nome = nome;

@@ -24,9 +24,6 @@ public class Transportadora {
     private Integer codTransportadora;
     private String nome;
 
-    @OneToMany(mappedBy = "transportadora")
-    private List<NotaFiscal> notaFiscalList;
-
     public static Transportadora valueOf(TransportadoraDTO transportadoraDTO) {
         return Transportadora.builder()
                 .nome(transportadoraDTO.getNome())
