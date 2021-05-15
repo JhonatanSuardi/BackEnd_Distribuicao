@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class NotaFiscalDTO {
     private MotoristaDTO motoristaDTO;
-    private DestinoDTO codPlantaDTO;
+    private CodPlantaDTO codPlantaDTO;
     private SlipDTO codSlipDTO;
     private RegistroEntradaDTO codRegistroDTO;
     private TransportadoraDTO transportadoraDTO;

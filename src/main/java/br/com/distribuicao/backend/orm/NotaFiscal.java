@@ -1,9 +1,6 @@
 package br.com.distribuicao.backend.orm;
 
-import br.com.distribuicao.backend.dto.DestinoDTO;
-import br.com.distribuicao.backend.dto.MotoristaDTO;
 import br.com.distribuicao.backend.dto.NotaFiscalDTO;
-import br.com.distribuicao.backend.dto.RegistroEntradaDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -34,7 +31,7 @@ public class NotaFiscal {
 
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "planta_id")
-    private Destino codPlanta;
+    private CodPlanta codPlanta;
 
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "slip_id")
@@ -50,7 +47,7 @@ public class NotaFiscal {
 
     public static NotaFiscal valueOf(NotaFiscalDTO notaFiscalDTO) {
         Motorista motorista = Motorista.valueOf(notaFiscalDTO.getMotoristaDTO());
-        Destino codPlanta = Destino.valueOf(notaFiscalDTO.getCodPlantaDTO());
+        CodPlanta codPlanta = CodPlanta.valueOf(notaFiscalDTO.getCodPlantaDTO());
         Slip codSlip = Slip.valueOf(notaFiscalDTO.getCodSlipDTO());
         RegistroEntrada codRegistro = RegistroEntrada.valueOf(notaFiscalDTO.getCodRegistroDTO());
         Transportadora transportadora = Transportadora.valueOf(notaFiscalDTO.getTransportadoraDTO());

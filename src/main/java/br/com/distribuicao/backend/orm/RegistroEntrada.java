@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "registro_entradas")
+@Table(name = "registro_entrada")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

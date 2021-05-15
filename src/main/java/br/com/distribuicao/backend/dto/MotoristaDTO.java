@@ -7,6 +7,4 @@ import lombok.Data;
 public class MotoristaDTO {
     private String cpf;
     private String nome;
-
-
 }
