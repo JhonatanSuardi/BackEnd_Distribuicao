@@ -27,7 +27,7 @@ public class CodPlanta {
         return CodPlanta.builder()
                 .descricaoOrigem(codPlantaDTO.getDescricaoOrigem())
                 .cidadeOrigem(codPlantaDTO.getCidadeOrigem())
-                .cidadeOrigem(codPlantaDTO.getEstadoOrigem())
+                .estadoOrigem(codPlantaDTO.getEstadoOrigem())
                 .build();
     }
 }
