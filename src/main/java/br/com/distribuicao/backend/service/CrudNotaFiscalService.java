@@ -43,15 +43,15 @@ public class CrudNotaFiscalService {
             NotaFiscal notaFiscal = NotaFiscal.valueOf(notaFiscalDTO);
             return notaFiscalRepository.findById(cod_nfe)
                     .map(record -> {
-                        record.setMotorista(notaFiscal.getMotorista());
-                        record.setCodPlanta(notaFiscal.getCodPlanta());
-                        record.setCodRegistro(notaFiscal.getCodRegistro());
-                        record.setTransportadora(notaFiscal.getTransportadora());
-                        record.setNumNfe(notaFiscal.getNumNfe());
-                        record.setNumSerie(notaFiscal.getNumSerie());
-                        record.setDocTransporte(notaFiscal.getDocTransporte());
-                        record.setPlaca(notaFiscal.getPlaca());
-                        record.setPerfilCarga(notaFiscal.getPerfilCarga());
+//                        record.setMotorista(notaFiscal.getMotorista());
+//                        record.setCodPlanta(notaFiscal.getCodPlanta());
+//                        record.setCodRegistro(notaFiscal.getCodRegistro());
+//                        record.setTransportadora(notaFiscal.getTransportadora());
+//                        record.setNumNfe(notaFiscal.getNumNfe());
+//                        record.setNumSerie(notaFiscal.getNumSerie());
+//                        record.setDocTransporte(notaFiscal.getDocTransporte());
+//                        record.setPlaca(notaFiscal.getPlaca());
+//                        record.setPerfilCarga(notaFiscal.getPerfilCarga());
                         record.setEstado(notaFiscal.getEstado());
                         NotaFiscal updated = notaFiscalRepository.save(record);
                         return ResponseEntity.ok().body(updated);
