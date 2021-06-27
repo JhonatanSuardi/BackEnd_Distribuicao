@@ -1,5 +1,6 @@
 package br.com.distribuicao.backend.service;
 
+import br.com.distribuicao.backend.dto.NotaEstadoDTO;
 import br.com.distribuicao.backend.dto.NotaFiscalDTO;
 import br.com.distribuicao.backend.orm.NotaFiscal;
 import br.com.distribuicao.backend.repository.NotaFiscalRepository;
@@ -39,8 +40,8 @@ public class CrudNotaFiscalService {
         @PutMapping(value="/{cod_nfe}")
         @ResponseStatus(HttpStatus.CREATED)
         public ResponseEntity update(@PathVariable String cod_nfe,
-                                     @RequestBody NotaFiscalDTO notaFiscalDTO) {
-            NotaFiscal notaFiscal = NotaFiscal.valueOf(notaFiscalDTO);
+                                     @RequestBody NotaEstadoDTO notaEstadoDTO) {
+            NotaFiscal notaFiscal = NotaFiscal.valueOf(notaEstadoDTO);
             return notaFiscalRepository.findById(cod_nfe)
                     .map(record -> {
 //                        record.setMotorista(notaFiscal.getMotorista());
