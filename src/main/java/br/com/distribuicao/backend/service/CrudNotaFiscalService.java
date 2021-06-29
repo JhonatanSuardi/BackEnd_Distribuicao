@@ -28,12 +28,14 @@ public class CrudNotaFiscalService {
         @GetMapping
         @ResponseStatus(HttpStatus.OK)
         public Iterable<NotaFiscal> findAll() {
+            System.out.println("feito o get");
             return notaFiscalRepository.findAll();
         }
 
         @PostMapping // Request com POST cai aqui.
         @ResponseStatus(HttpStatus.CREATED)
         public void adicionar(@RequestBody NotaFiscalDTO notaFiscalDTO){
+            System.out.println(notaFiscalDTO.toString());
             notaFiscalRepository.save(NotaFiscal.valueOf(notaFiscalDTO));
         }
 
@@ -41,19 +43,9 @@ public class CrudNotaFiscalService {
         @ResponseStatus(HttpStatus.CREATED)
         public ResponseEntity update(@PathVariable String cod_nfe,
                                      @RequestBody NotaEstadoDTO notaEstadoDTO) {
-            NotaFiscal notaFiscal = NotaFiscal.valueOf(notaEstadoDTO);
             return notaFiscalRepository.findById(cod_nfe)
                     .map(record -> {
-//                        record.setMotorista(notaFiscal.getMotorista());
-//                        record.setCodPlanta(notaFiscal.getCodPlanta());
-//                        record.setCodRegistro(notaFiscal.getCodRegistro());
-//                        record.setTransportadora(notaFiscal.getTransportadora());
-//                        record.setNumNfe(notaFiscal.getNumNfe());
-//                        record.setNumSerie(notaFiscal.getNumSerie());
-//                        record.setDocTransporte(notaFiscal.getDocTransporte());
-//                        record.setPlaca(notaFiscal.getPlaca());
-//                        record.setPerfilCarga(notaFiscal.getPerfilCarga());
-                        record.setEstado(notaFiscal.getEstado());
+                        record.setEstado(notaEstadoDTO.getEstado());
                         NotaFiscal updated = notaFiscalRepository.save(record);
                         return ResponseEntity.ok().body(updated);
                     }).orElse(ResponseEntity.notFound().build());

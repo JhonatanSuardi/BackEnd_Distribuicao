@@ -1,5 +1,6 @@
 package br.com.distribuicao.backend.orm;
 
+import br.com.distribuicao.backend.dto.NotaEstadoDTO;
 import br.com.distribuicao.backend.dto.NotaFiscalDTO;
 import lombok.*;
 
